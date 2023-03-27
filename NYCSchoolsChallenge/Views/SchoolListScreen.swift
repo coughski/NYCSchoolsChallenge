@@ -9,13 +9,14 @@ import SwiftUI
 
 struct SchoolListScreen: View {
     let schools: [School]
+    let results: [TestResults]
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(schools, id: \.dbn) { school in
                     NavigationLink {
-                        SchoolDetailScreen(school: school, results: TestResults.sampleData[0])
+                        SchoolDetailScreen(school: school, results: resultsFor(school))
                     } label: {
                         SchoolListItem(school: school)
                     }
@@ -26,8 +27,14 @@ struct SchoolListScreen: View {
     }
 }
 
+extension SchoolListScreen {
+    func resultsFor(_ school: School) -> TestResults? {
+        results.first { $0.dbn == school.dbn }
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SchoolListScreen(schools: School.sampleData)
+        SchoolListScreen(schools: School.sampleData, results: TestResults.sampleData)
     }
 }

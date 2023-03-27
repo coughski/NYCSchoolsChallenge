@@ -11,7 +11,7 @@ import SwiftUI
 struct NYCSchoolsChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            SchoolListScreen(schools: School.sampleData)
+            SchoolListScreen(schools: School.sampleData, results: TestResults.sampleData)
         }
     }
 }
