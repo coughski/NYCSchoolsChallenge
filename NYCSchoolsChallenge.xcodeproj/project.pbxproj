@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4F0B6529D24FE900E30504 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F0B6429D24FE900E30504 /* Extensions.swift */; };
 		8C62A88B29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A88A29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift */; };
 		8C62A88D29D12F7A0073A9A0 /* SchoolListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A88C29D12F7A0073A9A0 /* SchoolListScreen.swift */; };
 		8C62A88F29D12F7D0073A9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C62A88E29D12F7D0073A9A0 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C4F0B6429D24FE900E30504 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8C62A88729D12F7A0073A9A0 /* NYCSchoolsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSchoolsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C62A88A29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsChallengeApp.swift; sourceTree = "<group>"; };
 		8C62A88C29D12F7A0073A9A0 /* SchoolListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListScreen.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				8C62A88A29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift */,
 				8C62A8A429D149710073A9A0 /* NetworkingManager.swift */,
 				8C62A8A629D14C670073A9A0 /* SchoolListViewModel.swift */,
+				8C4F0B6429D24FE900E30504 /* Extensions.swift */,
 				8C62A8A129D13EBD0073A9A0 /* Views */,
 				8C62A89C29D13D450073A9A0 /* Model */,
 				8C62A88E29D12F7D0073A9A0 /* Assets.xcassets */,
@@ -179,6 +182,7 @@
 				8C62A89929D1316A0073A9A0 /* School.swift in Sources */,
 				8C62A8A729D14C670073A9A0 /* SchoolListViewModel.swift in Sources */,
 				8C62A89B29D138C10073A9A0 /* TestResults.swift in Sources */,
+				8C4F0B6529D24FE900E30504 /* Extensions.swift in Sources */,
 				8C62A8A029D13E530073A9A0 /* SchoolDetailScreen.swift in Sources */,
 				8C62A8A529D149710073A9A0 /* NetworkingManager.swift in Sources */,
 				8C62A8A329D1490B0073A9A0 /* School+SampleJSON.swift in Sources */,
