@@ -15,7 +15,7 @@ struct SchoolListScreen: View {
             List {
                 ForEach(schools, id: \.dbn) { school in
                     NavigationLink {
-                        SchoolDetailScreen(school: school)
+                        SchoolDetailScreen(school: school, results: TestResults.sampleData[0])
                     } label: {
                         SchoolListItem(school: school)
                     }
