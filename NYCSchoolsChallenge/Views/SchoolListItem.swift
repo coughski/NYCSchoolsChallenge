@@ -11,7 +11,7 @@ struct SchoolListItem: View {
     let school: School
     
     var body: some View {
-        Text(school.schoolName)
+        Text(school.name)
             .lineLimit(1)
     }
 }

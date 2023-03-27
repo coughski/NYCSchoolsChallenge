@@ -16,9 +16,6 @@ final class NetworkingManager {
         guard let url = URL(string: absoluteURL) else { throw NetworkingError.invalidURL }
         
         var request = URLRequest(url: url)
-#if !DEBUG
-        request.allHTTPHeaderFields = ["X-App-Token": APP_TOKEN]
-#endif
         let response: (Data, URLResponse)
         do {
             response = try await URLSession.shared.data(for: request)

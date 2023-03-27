@@ -63,7 +63,7 @@ struct SchoolDetailScreen: View {
             Spacer()
         }
         .padding()
-        .navigationTitle(school.schoolName)
+        .navigationTitle(school.name)
     }
     
     @ViewBuilder
