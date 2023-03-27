@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct SchoolListScreen: View {
+    let schools: [School]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(schools, id: \.dbn) { school in
+                    NavigationLink {
+                        SchoolDetailScreen(school: school)
+                    } label: {
+                        SchoolListItem(school: school)
+                    }
+                }
+            }
+            .navigationTitle("High Schools")
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SchoolListScreen()
+        SchoolListScreen(schools: School.sampleData)
     }
 }
