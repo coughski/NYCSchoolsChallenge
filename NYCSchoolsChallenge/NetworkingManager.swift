@@ -15,9 +15,13 @@ final class NetworkingManager {
     func request<T: Decodable>(_ absoluteURL: String) async throws -> T {
         guard let url = URL(string: absoluteURL) else { throw NetworkingError.invalidURL }
         
+        var request = URLRequest(url: url)
+#if !DEBUG
+        request.allHTTPHeaderFields = ["X-App-Token": APP_TOKEN]
+#endif
         let response: (Data, URLResponse)
         do {
-            response = try await URLSession.shared.data(from: url)
+            response = try await URLSession.shared.data(for: request)
         } catch {
             throw NetworkingError.custom(error: error)
         }
