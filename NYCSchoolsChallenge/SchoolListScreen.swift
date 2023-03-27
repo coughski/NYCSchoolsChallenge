@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SchoolListScreen.swift
 //  NYCSchoolsChallenge
 //
 //  Created by Kuba Szulaczkowski on 3/26/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SchoolListScreen: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +21,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SchoolListScreen()
     }
 }
