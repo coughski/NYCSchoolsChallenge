@@ -12,7 +12,7 @@ struct School {
     let schoolName: String
     let totalStudents: Int?
     let graduationRate: Double?
-    let borough: String
+    let borough: String?
 }
 
 extension School: Decodable {
@@ -25,8 +25,8 @@ extension School: Decodable {
         dbn = try values.decode(String.self, forKey: .dbn)
         schoolName = try values.decode(String.self, forKey: .schoolName)
         totalStudents = Int(try values.decode(String.self, forKey: .totalStudents))
-        graduationRate = Double(try values.decode(String.self, forKey: .graduationRate))
-        borough = try values.decode(String.self, forKey: .borough)
+        graduationRate = Double((try? values.decode(String.self, forKey: .graduationRate)) ?? "")
+        borough = try? values.decode(String.self, forKey: .borough)
     }
 }
 
