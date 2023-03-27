@@ -36,6 +36,7 @@ extension TestResults: Decodable {
 
 extension TestResults {
     static let sampleData = [
-        TestResults(dbn: "21K728", schoolName: "LIBERATION DIPLOMA PLUS", numOfSatTestTakers: 10, satCriticalReadingAvgScore: 411, satMathAvgScore: 369, satWritingAvgScore: 373)
+        TestResults(dbn: "21K728", schoolName: "LIBERATION DIPLOMA PLUS", numOfSatTestTakers: 10, satCriticalReadingAvgScore: 411, satMathAvgScore: 369, satWritingAvgScore: 373),
+        TestResults(dbn: "08X282", schoolName: "WOMEN'S ACADEMY OF EXCELLENCE", numOfSatTestTakers: 44, satCriticalReadingAvgScore: 407, satMathAvgScore: 386, satWritingAvgScore: 378)
     ]
 }

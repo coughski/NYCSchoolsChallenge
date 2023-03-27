@@ -32,6 +32,7 @@ extension School: Decodable {
 
 extension School {
     static let sampleData = [
-        School(dbn: "21K728", schoolName: "Liberation Diploma Plus High School", totalStudents: 206, graduationRate: nil, borough: "BROOKLYN")
+        School(dbn: "21K728", schoolName: "Liberation Diploma Plus High School", totalStudents: 206, graduationRate: nil, borough: "BROOKLYN"),
+        School(dbn: "08X282", schoolName: "Women's Academy of Excellence", totalStudents: 338, graduationRate: 0.612999976, borough: "BRONX    ")
     ]
 }
