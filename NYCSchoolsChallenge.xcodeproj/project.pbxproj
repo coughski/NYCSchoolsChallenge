@@ -57,8 +57,7 @@
 			children = (
 				8C62A88A29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift */,
 				8C62A88C29D12F7A0073A9A0 /* ContentView.swift */,
-				8C62A89829D1316A0073A9A0 /* School.swift */,
-				8C62A89A29D138C10073A9A0 /* TestResults.swift */,
+				8C62A89C29D13D450073A9A0 /* Model */,
 				8C62A88E29D12F7D0073A9A0 /* Assets.xcassets */,
 				8C62A89029D12F7D0073A9A0 /* Preview Content */,
 			);
@@ -71,6 +70,15 @@
 				8C62A89129D12F7D0073A9A0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8C62A89C29D13D450073A9A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C62A89829D1316A0073A9A0 /* School.swift */,
+				8C62A89A29D138C10073A9A0 /* TestResults.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
