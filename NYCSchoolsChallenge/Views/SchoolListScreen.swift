@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SchoolListScreen: View {
-    let schools: [School]
-    let results: [TestResults]
+    @StateObject private var viewModel = SchoolListViewModel()
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(schools, id: \.dbn) { school in
+                ForEach(viewModel.schools, id: \.dbn) { school in
                     NavigationLink {
                         SchoolDetailScreen(school: school, results: resultsFor(school))
                     } label: {
@@ -23,18 +22,21 @@ struct SchoolListScreen: View {
                 }
             }
             .navigationTitle("High Schools")
+            .task {
+                await viewModel.fetchData()
+            }
         }
     }
 }
 
 extension SchoolListScreen {
     func resultsFor(_ school: School) -> TestResults? {
-        results.first { $0.dbn == school.dbn }
+        viewModel.testResults.first { $0.dbn == school.dbn }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SchoolListScreen(schools: School.sampleData, results: TestResults.sampleData)
+        SchoolListScreen()
     }
 }
