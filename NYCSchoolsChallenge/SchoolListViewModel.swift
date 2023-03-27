@@ -21,6 +21,7 @@ final class SchoolListViewModel: ObservableObject {
         let _ = await [callSchools, callResults]
     }
     
+    // Given more time, I would display errors to the user in the form of an alert
     private func fetchSchools() async {
 //        let decoder = JSONDecoder()
 //        decoder.keyDecodingStrategy = .convertFromSnakeCase
