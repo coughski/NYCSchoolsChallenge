@@ -15,6 +15,7 @@
 		8C62A89B29D138C10073A9A0 /* TestResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A89A29D138C10073A9A0 /* TestResults.swift */; };
 		8C62A89E29D13DA20073A9A0 /* SchoolListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A89D29D13DA20073A9A0 /* SchoolListItem.swift */; };
 		8C62A8A029D13E530073A9A0 /* SchoolDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A89F29D13E530073A9A0 /* SchoolDetailScreen.swift */; };
+		8C62A8A329D1490B0073A9A0 /* School+SampleJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A8A229D1490B0073A9A0 /* School+SampleJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		8C62A89A29D138C10073A9A0 /* TestResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResults.swift; sourceTree = "<group>"; };
 		8C62A89D29D13DA20073A9A0 /* SchoolListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListItem.swift; sourceTree = "<group>"; };
 		8C62A89F29D13E530073A9A0 /* SchoolDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailScreen.swift; sourceTree = "<group>"; };
+		8C62A8A229D1490B0073A9A0 /* School+SampleJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+SampleJSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				8C62A89829D1316A0073A9A0 /* School.swift */,
+				8C62A8A229D1490B0073A9A0 /* School+SampleJSON.swift */,
 				8C62A89A29D138C10073A9A0 /* TestResults.swift */,
 			);
 			path = Model;
@@ -170,6 +173,7 @@
 				8C62A89929D1316A0073A9A0 /* School.swift in Sources */,
 				8C62A89B29D138C10073A9A0 /* TestResults.swift in Sources */,
 				8C62A8A029D13E530073A9A0 /* SchoolDetailScreen.swift in Sources */,
+				8C62A8A329D1490B0073A9A0 /* School+SampleJSON.swift in Sources */,
 				8C62A88B29D12F7A0073A9A0 /* NYCSchoolsChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
