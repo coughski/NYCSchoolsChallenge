@@ -18,36 +18,9 @@ struct SchoolDetailScreen: View {
 //                    .font(.title2)
                 
                 HStack(spacing: 32) {
-                    if let borough = school.borough {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("Borough")
-                                .foregroundColor(.secondary)
-                            Text(borough.localizedCapitalized)
-                                .font(.system(.title, design: .rounded))
-                                .foregroundColor(Color("publicNavy"))
-                        }
-                    }
-                    
-                    if let numStudents = school.totalStudents {
-                        VStack(alignment: .leading) {
-                            Text("Students")
-                                .foregroundColor(.secondary)
-                            Text("\(numStudents)")
-                                .font(.system(.title, design: .rounded))
-                                .foregroundColor(Color("publicNavy"))
-                        }
-                    }
-                    
-                    if let gradRate = school.graduationRate {
-                        VStack(alignment: .leading) {
-                            Text("Grad. rate")
-                                .foregroundColor(.secondary)
-                            Text("\(gradRate.formatted(.percent.rounded(rule: .up, increment: 0.1)))")
-                                .font(.system(.title, design: .rounded))
-                                .foregroundColor(Color("publicNavy"))
-                        }
-                    }
-                    
+                    borough
+                    studentNum
+                    rateGrad
                     Spacer()
                 }
             }
@@ -67,11 +40,51 @@ struct SchoolDetailScreen: View {
     }
     
     @ViewBuilder
+    var rateGrad: some View {
+        if let gradRate = school.graduationRate {
+            VStack(alignment: .leading) {
+                Text("Grad. rate")
+                    .foregroundColor(.secondary)
+                Text("\(gradRate.formatted(.percent.rounded(rule: .up, increment: 0.1)))")
+                    .font(.system(.title, design: .rounded))
+                    .foregroundColor(Color("publicNavy"))
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var studentNum: some View {
+        if let numStudents = school.totalStudents {
+            VStack(alignment: .leading) {
+                Text("Students")
+                    .foregroundColor(.secondary)
+                Text("\(numStudents)")
+                    .font(.system(.title, design: .rounded))
+                    .foregroundColor(Color("publicNavy"))
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var borough: some View {
+        if let borough = school.borough {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Borough")
+                    .foregroundColor(.secondary)
+                Text(borough.localizedCapitalized)
+                    .font(.system(.title, design: .rounded))
+                    .foregroundColor(Color("publicNavy"))
+            }
+        }
+    }
+    
+    @ViewBuilder
     var testResultsSection: some View {
         if results == nil {
             Text("SAT score data unavailable")
                 .foregroundColor(.secondary)
                 .italic()
+            
         } else if let results {
             VStack(alignment: .leading, spacing: 16) {
                 Divider()
