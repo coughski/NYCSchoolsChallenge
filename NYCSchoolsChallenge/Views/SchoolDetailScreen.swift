@@ -47,7 +47,7 @@ struct SchoolDetailScreen: View {
                     .foregroundColor(.secondary)
                 Text("\(gradRate.formatted(.percent.rounded(rule: .up, increment: 0.1)))")
                     .font(.system(.title, design: .rounded))
-                    .foregroundColor(Color("publicNavy"))
+                    .foregroundColor(.publicNavy)
             }
         }
     }
@@ -60,7 +60,7 @@ struct SchoolDetailScreen: View {
                     .foregroundColor(.secondary)
                 Text("\(numStudents)")
                     .font(.system(.title, design: .rounded))
-                    .foregroundColor(Color("publicNavy"))
+                    .foregroundColor(.publicNavy)
             }
         }
     }
@@ -73,7 +73,7 @@ struct SchoolDetailScreen: View {
                     .foregroundColor(.secondary)
                 Text(borough.localizedCapitalized)
                     .font(.system(.title, design: .rounded))
-                    .foregroundColor(Color("publicNavy"))
+                    .foregroundColor(.publicNavy)
             }
         }
     }
@@ -98,7 +98,7 @@ struct SchoolDetailScreen: View {
                             .foregroundColor(.secondary)
                         Text("\(results.numOfSatTestTakers ?? 0)")
                             .font(.system(.title, design: .rounded))
-                            .foregroundColor(Color("publicNavy"))
+                            .foregroundColor(.publicNavy)
                     }
                     
                     VStack(alignment: .leading) {
@@ -106,7 +106,7 @@ struct SchoolDetailScreen: View {
                             .foregroundColor(.secondary)
                         Text("\(results.satCriticalReadingAvgScore ?? 0)")
                             .font(.system(.title, design: .rounded))
-                            .foregroundColor(Color("publicNavy"))
+                            .foregroundColor(.publicNavy)
                     }
                     
                     VStack(alignment: .leading) {
@@ -114,7 +114,7 @@ struct SchoolDetailScreen: View {
                             .foregroundColor(.secondary)
                         Text("\(results.satMathAvgScore ?? 0)")
                             .font(.system(.title, design: .rounded))
-                            .foregroundColor(Color("publicNavy"))
+                            .foregroundColor(.publicNavy)
                     }
                     
                     VStack(alignment: .leading) {
@@ -122,7 +122,7 @@ struct SchoolDetailScreen: View {
                             .foregroundColor(.secondary)
                         Text("\(results.satWritingAvgScore ?? 0)")
                             .font(.system(.title, design: .rounded))
-                            .foregroundColor(Color("publicNavy"))
+                            .foregroundColor(.publicNavy)
                     }
                     
                     Spacer()
