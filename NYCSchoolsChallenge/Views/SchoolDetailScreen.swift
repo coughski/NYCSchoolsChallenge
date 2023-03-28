@@ -14,6 +14,7 @@ struct SchoolDetailScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 32) {
+                actionRow
                 basicStats
                 overview
                 testResultsSection
@@ -26,7 +27,66 @@ struct SchoolDetailScreen: View {
         }
     }
     
+    var actionRow: some View {
+        HStack(alignment: .bottom, spacing: 32) {
+            if let website = school.website, let url = URL(string: website) {
+                Link(destination: url) {
+                    VStack {
+                        Image(systemName: "link")
+                            .imageScale(.large)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(Color.boardBlue)
+                            .frame(width: 40, height: 40)
+                            .background {
+                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.boardBlue, lineWidth: 2)
+                            }
+                        Text("Website")
+                    }
+                }
+                .frame(width: 70)
+            }
+            
+            if let email = school.email, let url = URL(string: "mailto:\(email)") {
+                Link(destination: url) {
+                    VStack {
+                        Image(systemName: "envelope.fill")
+                            .imageScale(.large)
+                            .fontWeight(.light)
+                            .foregroundColor(.schoolOrange)
+                            .frame(width: 41, height: 41)
+                            .background {
+                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.schoolOrange, lineWidth: 2)
+                            }
+                        Text("Email")
+                    }
+                }
+                .frame(width: 60)
+            }
+            
+            if let phone = school.phoneNumber, let url = URL(string: "tel:\(phone)") {
+                Link(destination: url) {
+                    VStack {
+                        Image(systemName: "phone.fill")
+                            .imageScale(.large)
+                            .fontWeight(.light)
+                            .foregroundStyle(Color.nycGreen)
+                            .frame(width: 39, height: 39)
+                            .background {
+                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.nycGreen, lineWidth: 2)
+                            }
+                        Text("Phone")
+                    }
+                }
+                .frame(width: 60)
+            }
+            Spacer()
+        }
+        .foregroundColor(.publicNavy)
+    }
+    
+    @ViewBuilder
     var basicStats: some View {
+        Divider()
         HStack(alignment: .lastTextBaseline, spacing: 32) {
             Statistic("Borough", statistic: school.borough)
             Statistic("No. of Students", statistic: school.totalStudents, format: .number)
