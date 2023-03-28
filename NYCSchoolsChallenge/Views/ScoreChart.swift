@@ -81,6 +81,6 @@ struct ScoreChart: View {
 
 struct ScoreChart_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreChart(scores: TestResults.sampleData[0])
+        ScoreChart(scores: TestResults(dbn: "", numOfSatTestTakers: nil, satCriticalReadingAvgScore: 0, satMathAvgScore: 100, satWritingAvgScore: 800))
     }
 }
