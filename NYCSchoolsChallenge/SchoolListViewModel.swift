@@ -10,7 +10,7 @@ import SwiftUI
 @MainActor
 final class SchoolListViewModel: ObservableObject {
     @Published private(set) var schools = [School]()
-    @Published private(set) var testResults = [TestResults]()
+    @Published private(set) var testResults = [String: TestResults]()
     
     private static let schoolDirectoryURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     private static let testResultsURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
@@ -40,7 +40,10 @@ final class SchoolListViewModel: ObservableObject {
 //        testResults = (try? decoder.decode(TestResultsResponse.self, from: TestResults.sampleJSON.data(using: .utf8)!)) ?? []
 //
         do {
-            testResults = try await NetworkingManager.shared.request(Self.testResultsURL)
+            let resultsList: TestResultsResponse = try await NetworkingManager.shared.request(Self.testResultsURL)
+            for result in resultsList {
+                testResults[result.dbn] = result
+            }
         } catch {
             dump(error)
         }

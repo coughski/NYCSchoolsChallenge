@@ -31,7 +31,7 @@ struct SchoolListScreen: View {
 
 extension SchoolListScreen {
     func resultsFor(_ school: School) -> TestResults? {
-        viewModel.testResults.first { $0.dbn == school.dbn }
+        viewModel.testResults[school.dbn]
     }
 }
 
