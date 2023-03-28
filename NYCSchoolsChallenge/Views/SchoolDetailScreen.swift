@@ -78,7 +78,7 @@ struct SchoolDetailScreen: View {
                 .padding(.vertical, 8)
             Divider()
         }
-        .background(Color(uiColor: .systemBackground))
+        .background(Material.thick)
     }
     
     @ViewBuilder
