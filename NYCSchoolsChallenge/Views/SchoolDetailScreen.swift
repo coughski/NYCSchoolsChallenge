@@ -103,6 +103,8 @@ struct SchoolDetailScreen: View {
                     Statistic("Writing", statistic: results.satWritingAvgScore, format: .number)
                     Spacer()
                 }
+                
+                ScoreChart(scores: results)
             }
         }
     }
