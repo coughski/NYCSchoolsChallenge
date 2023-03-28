@@ -113,7 +113,7 @@ struct SchoolDetailScreen: View {
 struct SchoolDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SchoolDetailScreen(school: School.sampleData[0], results: TestResults.sampleData[0])
+            SchoolDetailScreen(school: School.sampleData[1], results: TestResults.sampleData[1])
         }
     }
 }
