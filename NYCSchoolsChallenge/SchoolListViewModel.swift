@@ -12,6 +12,19 @@ final class SchoolListViewModel: ObservableObject {
     @Published private(set) var schools = [School]()
     @Published private(set) var testResults = [String: TestResults]()
     
+    @Published var searchString = ""
+    @Published var searchTokens = [SearchToken]()
+//    @Published var suggestedSearchTokens = Borough.allTokens + OtherTokenEnum.allTokens
+//    @Published private(set) var searchResults = [School]()
+    
+    func search() -> [School] {
+        if !searchString.isEmpty {
+            return schools.filter { $0.name.lowercased().contains(searchString.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) }
+        } else {
+            return schools
+        }
+    }
+    
     private static let schoolDirectoryURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     private static let testResultsURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
     
