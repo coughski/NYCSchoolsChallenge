@@ -12,6 +12,13 @@ final class SchoolListViewModel: ObservableObject {
     @Published private(set) var schools = [School]()
     @Published private(set) var testResults = [String: TestResults]()
     
+    @Published var sortOrder = SortOrder.name {
+        didSet {
+            schools.sort(by: sortOrder.predicate)
+        }
+    }
+//    @Published var sortAscending = true
+    
     @Published var searchString = ""
     @Published var searchTokens = [SearchToken]()
 //    @Published var suggestedSearchTokens = Borough.allTokens + OtherTokenEnum.allTokens
@@ -42,7 +49,7 @@ final class SchoolListViewModel: ObservableObject {
 //        
         do {
             schools = try await NetworkingManager.shared.request(Self.schoolDirectoryURL)
-            schools.sort { $0.name < $1.name }
+            schools.sort(by: sortOrder.predicate)
         } catch {
             dump(error)
         }
@@ -60,6 +67,22 @@ final class SchoolListViewModel: ObservableObject {
             }
         } catch {
             dump(error)
+        }
+    }
+}
+
+enum SortOrder: String, CaseIterable, Identifiable {
+    case name
+    case size
+    
+    var id: Self { self }
+    
+    var predicate: (School, School) -> Bool {
+        switch self {
+            case .name:
+                return { $0.name < $1.name }
+            case .size:
+                return { $0.totalStudents ?? 0 < $1.totalStudents ?? 0 }
         }
     }
 }

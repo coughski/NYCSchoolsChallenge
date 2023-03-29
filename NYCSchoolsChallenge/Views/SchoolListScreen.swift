@@ -32,6 +32,30 @@ struct SchoolListScreen: View {
 //            .searchSuggestions {
 //                Text("Additional suggestions").searchCompletion("suggestion")
 //            }
+            .toolbar {
+                sortMenu
+            }
+        }
+    }
+    
+    var sortMenu: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Menu {
+                Picker(selection: $viewModel.sortOrder, label: Text("Sort")) {
+                    ForEach(SortOrder.allCases) { sort in
+                        HStack {
+                            Text(sort.rawValue.localizedCapitalized)
+                            Spacer()
+                            //                                    if viewModel.sortOrder == sortOrder {
+                            //                                        Image(systemName: viewModel.sortAscending ? "chevron.up" : "chevron.down")
+                            //                                    }
+                        }
+                    }
+                }
+            } label: {
+                Image(systemName: "ellipsis.circle")
+            }
+            .menuStyle(.button)
         }
     }
 }
