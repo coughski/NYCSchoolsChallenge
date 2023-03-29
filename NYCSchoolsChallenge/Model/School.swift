@@ -35,7 +35,8 @@ extension School: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         dbn = try values.decode(String.self, forKey: .dbn)
-        name = try values.decode(String.self, forKey: .name)
+        
+        name = (try values.decode(String.self, forKey: .name)).replacingOccurrences(of: "Â", with: "")
         
         overview = (try? values.decode(String.self, forKey: .overview))?.replacingOccurrences(of: "Â", with: "")
         
