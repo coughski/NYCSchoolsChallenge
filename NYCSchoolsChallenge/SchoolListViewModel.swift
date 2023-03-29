@@ -86,3 +86,64 @@ enum SortOrder: String, CaseIterable, Identifiable {
         }
     }
 }
+
+protocol Tokenizable: RawRepresentable, CaseIterable, Identifiable where ID == String, RawValue == String {
+    var tokenView: Text { get }
+}
+
+extension Tokenizable {
+    static var allTokens: [SearchToken] {
+        allCases.map(\.searchToken)
+    }
+    
+    var searchToken: SearchToken {
+        SearchToken(token: self)
+    }
+    
+    var tokenView: Text {
+        Text(rawValue)
+    }
+    
+    var id: String { rawValue }
+}
+
+//protocol Suggestable: Identifiable {
+//    var suggestionView: any View { get }
+//    var completion: String { get }
+//}
+
+struct SearchToken: Identifiable {
+    let token: any Tokenizable
+    
+    var tokenView: some View {
+        token.tokenView
+    }
+    
+    var id: String {
+        token.id
+    }
+}
+
+//extension SearchToken: Suggestable {
+//    var suggestionView: any View {
+//        tokenView
+//    }
+//
+//    var completion: String {
+//        token.rawValue
+//    }
+//}
+
+enum Borough: String {
+    case Bronx
+    case Brooklyn
+    case Manhattan
+    case Queens
+    case StatenIsland = "Staten Island"
+}
+
+extension Borough: Tokenizable {}
+
+enum OtherTokenEnum: String, Tokenizable {
+    case other
+}
