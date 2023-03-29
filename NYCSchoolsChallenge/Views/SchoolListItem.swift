@@ -13,6 +13,8 @@ struct SchoolListItem: View {
     var body: some View {
         Text(school.name)
             .lineLimit(1)
+            .font(.system(.title3, design: .rounded))
+            .foregroundColor(.publicNavy)
     }
 }
 
