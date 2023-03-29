@@ -11,6 +11,8 @@ struct SchoolDetailScreen: View {
     let school: School
     let results: TestResults?
     
+    @State private var overviewExpanded = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 32) {
@@ -124,24 +126,19 @@ struct SchoolDetailScreen: View {
         VStack(alignment: .leading, spacing: 8) {
             if let overview = school.overview {
                 Divider()
-                NavigationLink {
-                    ScrollView {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Overview")
+                        .foregroundColor(.secondary)
+                    VStack(alignment: .trailing, spacing: 8) {
                         Text(overview)
                             .font(.system(.title2, design: .rounded))
                             .foregroundColor(.publicNavy)
-                            .padding()
-                    }
-                } label: {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Overview")
-                            .foregroundColor(.secondary)
-                        HStack(alignment: .center) {
-                            Text(overview)
-                                .font(.system(.title2, design: .rounded))
-                                .foregroundColor(.publicNavy)
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(3)
-                            Image(systemName: "chevron.right")
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(overviewExpanded ? Int.max : 5)
+                        Button(overviewExpanded ? "LESS" : "MORE") {
+                            withAnimation {
+                                overviewExpanded.toggle()
+                            }
                         }
                     }
                 }
