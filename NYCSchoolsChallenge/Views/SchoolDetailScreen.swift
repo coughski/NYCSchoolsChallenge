@@ -43,7 +43,7 @@ struct SchoolDetailScreen: View {
                         Text("Website")
                     }
                 }
-                .frame(width: 70)
+//                .frame(width: 70)
             }
             
             if let email = school.email, let url = URL(string: "mailto:\(email)") {
@@ -60,7 +60,7 @@ struct SchoolDetailScreen: View {
                         Text("Email")
                     }
                 }
-                .frame(width: 60)
+//                .frame(width: 60)
             }
             
             if let phone = school.phoneNumber, let url = URL(string: "tel:\(phone)") {
@@ -77,8 +77,32 @@ struct SchoolDetailScreen: View {
                         Text("Phone")
                     }
                 }
-                .frame(width: 60)
+//                .frame(width: 60)
             }
+            
+            if let latitude = school.latitude, let longitude = school.longitude {
+                var urlComponents = URLComponents(string: "http://maps.apple.com/?ll=\(latitude),\(longitude)&z=18")
+                let _ = urlComponents?.queryItems?.append(URLQueryItem(name: "q", value: school.name))
+                if let url = urlComponents?.url {
+                    
+                    Link(destination: url) {
+                        VStack {
+                            Image(systemName: "map.fill")
+                                .imageScale(.large)
+                                .fontWeight(.light)
+                                .foregroundStyle(Color.brown)
+                                .frame(width: 39, height: 39)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.brown, lineWidth: 2)
+                                }
+                            Text("Map")
+                        }
+                    }
+                    
+                }
+//                    .frame(width: 40)
+            }
+            
             Spacer()
         }
         .foregroundColor(.publicNavy)
