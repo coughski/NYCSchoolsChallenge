@@ -117,6 +117,7 @@ struct SchoolDetailScreen: View {
                 Statistic("Students", statistic: school.totalStudents, format: .number.notation(.compactName))
                 Statistic("Grad. rate", statistic: school.graduationRate, format: .percent.rounded(rule: .up, increment: 1))
                 Statistic("Attend. rate", statistic: school.attendanceRate, format: .percent.rounded(rule: .up, increment: 1))
+                Spacer()
             }
         }
     }
@@ -183,6 +184,72 @@ struct SchoolDetailScreen: View {
                 }
                 
                 ScoreChart(scores: results)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var sports: some View {
+        Divider()
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Sports")
+                .textCase(.uppercase)
+                .font(.headline)
+                .foregroundColor(.publicNavy)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .bottom, spacing: 32) {
+                    Group {
+                        Image(systemName: "figure.basketball")
+                        Image(systemName: "figure.soccer")
+                        Image(systemName: "figure.lacrosse")
+                        Image(systemName: "figure.volleyball")
+                        Image(systemName: "figure.baseball")
+                        Image(systemName: "figure.bowling")
+                        Image(systemName: "figure.wrestling")
+                        Image(systemName: "figure.tennis")
+                        Image(systemName: "figure.handball")
+                        Image(systemName: "figure.badminton")
+                    }
+                    Group {
+                        Image(systemName: "figure.run")
+                        Image(systemName: "figure.wrestling")
+                        Image(systemName: "figure.track.and.field")
+                        Image(systemName: "figure.fencing")
+                        Image(systemName: "figure.gymnastics")
+                        Image(systemName: "figure.pool.swim")
+                        Image(systemName: "figure.american.football")
+                        Image(systemName: "figure.table.tennis")
+                        Image(systemName: "figure.rugby")
+                    }
+                    Spacer()
+                }
+                .font(.largeTitle)
+                .foregroundColor(.publicNavy)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var languages: some View {
+        Divider()
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Languages")
+                .textCase(.uppercase)
+                .font(.headline)
+                .foregroundColor(.publicNavy)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .bottom, spacing: 32) {
+                    Group {
+                        Text("🇺🇸").font(.largeTitle)
+                        Text("🇪🇸").font(.largeTitle)
+                        Text("🇫🇷").font(.largeTitle)
+                    }
+                    Spacer()
+                }
+                .font(.largeTitle)
+                .foregroundColor(.publicNavy)
             }
         }
     }
