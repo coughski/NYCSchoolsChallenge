@@ -16,10 +16,10 @@ struct SchoolDetailScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 32) {
-                actionRow
+                links
                 basicStats
                 overview
-                testResultsSection
+                testResults
                 Spacer()
             }
             .padding()
@@ -29,83 +29,81 @@ struct SchoolDetailScreen: View {
         }
     }
     
-    var actionRow: some View {
-        HStack(alignment: .bottom, spacing: 32) {
-            if let website = school.website, let url = URL(string: website) {
-                Link(destination: url) {
-                    VStack {
-                        Image(systemName: "link")
-                            .imageScale(.large)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color.boardBlue)
-                            .frame(width: 40, height: 40)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.boardBlue, lineWidth: 2)
-                            }
-                        Text("Website")
-                    }
-                }
-//                .frame(width: 70)
-            }
-            
-            if let email = school.email, let url = URL(string: "mailto:\(email)") {
-                Link(destination: url) {
-                    VStack {
-                        Image(systemName: "envelope.fill")
-                            .imageScale(.large)
-                            .fontWeight(.light)
-                            .foregroundColor(.schoolOrange)
-                            .frame(width: 41, height: 41)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.schoolOrange, lineWidth: 2)
-                            }
-                        Text("Email")
-                    }
-                }
-//                .frame(width: 60)
-            }
-            
-            if let phone = school.phoneNumber, let url = URL(string: "tel:\(phone)") {
-                Link(destination: url) {
-                    VStack {
-                        Image(systemName: "phone.fill")
-                            .imageScale(.large)
-                            .fontWeight(.light)
-                            .foregroundStyle(Color.nycGreen)
-                            .frame(width: 39, height: 39)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.nycGreen, lineWidth: 2)
-                            }
-                        Text("Phone")
-                    }
-                }
-//                .frame(width: 60)
-            }
-            
-            if let latitude = school.latitude, let longitude = school.longitude {
-                var urlComponents = URLComponents(string: "http://maps.apple.com/?ll=\(latitude),\(longitude)&z=18")
-                let _ = urlComponents?.queryItems?.append(URLQueryItem(name: "q", value: school.name))
-                if let url = urlComponents?.url {
-                    
+    var links: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .bottom, spacing: 32) {
+                if let website = school.website, let url = URL(string: website) {
                     Link(destination: url) {
                         VStack {
-                            Image(systemName: "map.fill")
+                            Image(systemName: "link")
                                 .imageScale(.large)
-                                .fontWeight(.light)
-                                .foregroundStyle(Color.brown)
-                                .frame(width: 39, height: 39)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(Color.boardBlue)
+                                .frame(width: 40, height: 40)
                                 .background {
-                                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.brown, lineWidth: 2)
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.boardBlue, lineWidth: 2)
                                 }
-                            Text("Map")
+                            Text("Website")
                         }
                     }
-                    
                 }
-//                    .frame(width: 40)
+                
+                if let email = school.email, let url = URL(string: "mailto:\(email)") {
+                    Link(destination: url) {
+                        VStack {
+                            Image(systemName: "envelope.fill")
+                                .imageScale(.large)
+                                .fontWeight(.light)
+                                .foregroundColor(.schoolOrange)
+                                .frame(width: 41, height: 41)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.schoolOrange, lineWidth: 2)
+                                }
+                            Text("Email")
+                        }
+                    }
+                }
+                
+                if let phone = school.phoneNumber, let url = URL(string: "tel:\(phone)") {
+                    Link(destination: url) {
+                        VStack {
+                            Image(systemName: "phone.fill")
+                                .imageScale(.large)
+                                .fontWeight(.light)
+                                .foregroundStyle(Color.nycGreen)
+                                .frame(width: 39, height: 39)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.nycGreen, lineWidth: 2)
+                                }
+                            Text("Phone")
+                        }
+                    }
+                }
+                
+                if let latitude = school.latitude, let longitude = school.longitude {
+                    var urlComponents = URLComponents(string: "http://maps.apple.com/?ll=\(latitude),\(longitude)&z=18")
+                    let _ = urlComponents?.queryItems?.append(URLQueryItem(name: "q", value: school.name))
+                    if let url = urlComponents?.url {
+                        
+                        Link(destination: url) {
+                            VStack {
+                                Image(systemName: "map.fill")
+                                    .imageScale(.large)
+                                    .fontWeight(.light)
+                                    .foregroundStyle(Color.brown)
+                                    .frame(width: 39, height: 39)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.brown, lineWidth: 2)
+                                    }
+                                Text("Map")
+                            }
+                        }
+                        
+                    }
+                }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
         .foregroundColor(.publicNavy)
     }
@@ -113,12 +111,13 @@ struct SchoolDetailScreen: View {
     @ViewBuilder
     var basicStats: some View {
         Divider()
-        HStack(alignment: .lastTextBaseline, spacing: 32) {
-            Statistic("Borough", statistic: school.borough)
-            Statistic("No. of Students", statistic: school.totalStudents, format: .number)
-            Statistic("Grad. rate", statistic: school.graduationRate, format: .percent.rounded(rule: .up, increment: 1))
-            Statistic("Attend. rate", statistic: school.attendanceRate, format: .percent.rounded(rule: .up, increment: 1))
-            Spacer()
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .lastTextBaseline, spacing: 24) {
+                Statistic("Borough", statistic: school.borough?.localizedCapitalized)
+                Statistic("Students", statistic: school.totalStudents, format: .number.notation(.compactName))
+                Statistic("Grad. rate", statistic: school.graduationRate, format: .percent.rounded(rule: .up, increment: 1))
+                Statistic("Attend. rate", statistic: school.attendanceRate, format: .percent.rounded(rule: .up, increment: 1))
+            }
         }
     }
     
@@ -163,26 +162,24 @@ struct SchoolDetailScreen: View {
     }
     
     @ViewBuilder
-    var testResultsSection: some View {
-        Divider()
-        if results == nil {
-            Text("SAT score data unavailable")
-                .foregroundColor(.secondary)
-                .italic()
-            
-        } else if let results {
+    var testResults: some View {
+        if let results, let takers = results.numOfSatTestTakers, let reading = results.satCriticalReadingAvgScore, let math = results.satMathAvgScore, let writing = results.satWritingAvgScore {
+            Divider()
             VStack(alignment: .leading, spacing: 16) {
                 Text("SAT Scores")
                     .textCase(.uppercase)
                     .font(.headline)
                     .foregroundColor(.publicNavy)
                 
-                HStack(alignment: .bottom, spacing: 32) {
-                    Statistic("Test takers", statistic: results.numOfSatTestTakers, format: .number)
-                    Statistic("Reading", statistic: results.satCriticalReadingAvgScore, format: .number)
-                    Statistic("Math", statistic: results.satMathAvgScore, format: .number)
-                    Statistic("Writing", statistic: results.satWritingAvgScore, format: .number)
-                    Spacer()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .bottom, spacing: 32) {
+                        Statistic("Reading", statistic: reading, format: .number)
+                        Statistic("Math", statistic: math, format: .number)
+                        Statistic("Writing", statistic: writing, format: .number)
+                        Statistic("Total", statistic: reading + math + writing, format: .number.grouping(.never))
+                        Statistic("Test takers", statistic: takers, format: .number)
+                        Spacer()
+                    }
                 }
                 
                 ScoreChart(scores: results)
