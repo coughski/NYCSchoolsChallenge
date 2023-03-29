@@ -23,6 +23,7 @@ struct SchoolListScreen: View {
             }
             .listStyle(.plain)
             .navigationTitle("High Schools")
+            .navigationBarTitleDisplayMode(.inline)
             .task {
                 await viewModel.fetchData()
             }
@@ -33,8 +34,22 @@ struct SchoolListScreen: View {
 //                Text("Additional suggestions").searchCompletion("suggestion")
 //            }
             .toolbar {
+                navigationTitle
                 sortMenu
             }
+        }
+    }
+    
+    @ToolbarContentBuilder
+    var navigationTitle: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Text("")
+        }
+        ToolbarItem(placement: .navigationBarLeading) {
+            Text("High schools")
+                .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                .foregroundColor(.publicNavy)
+                .padding(.bottom, 6)
         }
     }
     
