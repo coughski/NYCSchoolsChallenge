@@ -42,6 +42,7 @@ final class SchoolListViewModel: ObservableObject {
 //        
         do {
             schools = try await NetworkingManager.shared.request(Self.schoolDirectoryURL)
+            schools.sort { $0.name < $1.name }
         } catch {
             dump(error)
         }

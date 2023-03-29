@@ -21,11 +21,12 @@ struct SchoolListScreen: View {
                     }
                 }
             }
+            .listStyle(.plain)
             .navigationTitle("High Schools")
             .task {
                 await viewModel.fetchData()
             }
-            .searchable(text: $viewModel.searchString, tokens: $viewModel.searchTokens, placement: .automatic, prompt: "Search high schools") { token in
+            .searchable(text: $viewModel.searchString, tokens: $viewModel.searchTokens, placement: .automatic, prompt: "Search") { token in
                 token.tokenView
             }
 //            .searchSuggestions {

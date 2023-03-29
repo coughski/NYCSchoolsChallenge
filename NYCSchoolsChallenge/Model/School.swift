@@ -43,7 +43,7 @@ extension School: Decodable {
         phoneNumber = try? values.decode(String.self, forKey: .phoneNumber)
         email = try? values.decode(String.self, forKey: .email)
         
-        var rawWebsite = try? values.decode(String.self, forKey: .website)
+        let rawWebsite = try? values.decode(String.self, forKey: .website)
         if let rawWebsite {
             website = !rawWebsite.hasPrefix("http") ? "http://" + rawWebsite : rawWebsite
         } else {
