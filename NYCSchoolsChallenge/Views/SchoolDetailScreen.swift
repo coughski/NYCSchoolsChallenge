@@ -15,7 +15,7 @@ struct SchoolDetailScreen: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 32) {
+            VStack(alignment: .leading, spacing: 16) {
                 links
                 basicStats
                 overview
@@ -55,7 +55,7 @@ struct SchoolDetailScreen: View {
                                 .imageScale(.large)
                                 .fontWeight(.light)
                                 .foregroundColor(.schoolOrange)
-                                .frame(width: 41, height: 41)
+                                .frame(width: 40, height: 40)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.schoolOrange, lineWidth: 2)
                                 }
@@ -71,7 +71,7 @@ struct SchoolDetailScreen: View {
                                 .imageScale(.large)
                                 .fontWeight(.light)
                                 .foregroundStyle(Color.nycGreen)
-                                .frame(width: 39, height: 39)
+                                .frame(width: 40, height: 40)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.nycGreen, lineWidth: 2)
                                 }
@@ -91,19 +91,19 @@ struct SchoolDetailScreen: View {
                                     .imageScale(.large)
                                     .fontWeight(.light)
                                     .foregroundStyle(Color.brown)
-                                    .frame(width: 39, height: 39)
+                                    .frame(width: 40, height: 40)
                                     .background {
                                         RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.brown, lineWidth: 2)
                                     }
                                 Text("Map")
                             }
                         }
-                        
                     }
                 }
                 
                 Spacer()
             }
+            .padding(.top, 4)
         }
         .foregroundColor(.publicNavy)
     }
