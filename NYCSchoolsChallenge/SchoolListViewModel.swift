@@ -32,8 +32,8 @@ final class SchoolListViewModel: ObservableObject {
         }
     }
     
-    private static let schoolDirectoryURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
-    private static let testResultsURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
+    static let schoolDirectoryURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
+    static let testResultsURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
     
     func fetchData() async {
         async let callSchools: Void = fetchSchools()
@@ -43,10 +43,6 @@ final class SchoolListViewModel: ObservableObject {
     
     // Given more time, I would display errors to the user in the form of an alert
     private func fetchSchools() async {
-//        let decoder = JSONDecoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
-//        schools = (try? decoder.decode(SchoolDirectoryResponse.self, from: School.sampleJSON.data(using: .utf8)!)) ?? []
-//        
         do {
             schools = try await NetworkingManager.shared.request(Self.schoolDirectoryURL)
             schools.sort(by: sortOrder.predicate)
@@ -56,10 +52,6 @@ final class SchoolListViewModel: ObservableObject {
     }
     
     private func fetchTestResults() async {
-//        let decoder = JSONDecoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
-//        testResults = (try? decoder.decode(TestResultsResponse.self, from: TestResults.sampleJSON.data(using: .utf8)!)) ?? []
-//
         do {
             let resultsList: TestResultsResponse = try await NetworkingManager.shared.request(Self.testResultsURL)
             for result in resultsList {
