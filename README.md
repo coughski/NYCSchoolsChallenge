@@ -12,3 +12,10 @@ An iOS app for searching, sorting, and viewing details about NYC high schools. I
 - 📊 Swift Charts
 - 📐 SwiftUI
 - 🏎️ Swift
+
+## Highlights
+- I used the `.searchable` view modifier to enable a simple substring search of the school names
+- To illustrate school test results, I used **Swift Charts** to create a custom horizontal bar chart with `.annotation` modifiers and custom `AxisMarks`
+- I used formatters such as `.number.notation(.compactName)` to more elegantly display school statistics
+- `jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase`
+- **MVVM** was my choice of architecture to separate models, views, and business logic
