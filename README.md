@@ -15,6 +15,7 @@ An iOS app for searching, sorting, and viewing details about NYC high schools. I
 
 ## Highlights
 - I used the `.searchable` view modifier to enable a simple substring search of the school names, and a `Menu` for sorting options
+- I added a working row of `Link` views with special URL schemes which allow users to quickly view the school's website, call the school, compose an email to the school's email address, or view the school's location in the Maps app
 - To illustrate school SAT scores, I used ***Swift Charts*** to create a [custom horizontal bar chart](https://github.com/coughski/NYCSchoolsChallenge/blob/95cec6da8ceb00e79a9e5f91319e09388cab06b7/NYCSchoolsChallenge/Views/ScoreChart.swift#L15) with `.annotation` modifiers and custom `AxisMarks`
 - I used formatters such as `.number.notation(.compactName)` to efficiently and elegantly display school statistics
 - I used `jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase` so that I could keep the names of my model struct properties Swifty, which is less work than assigning a raw `String` value to every `CodingKey` case
