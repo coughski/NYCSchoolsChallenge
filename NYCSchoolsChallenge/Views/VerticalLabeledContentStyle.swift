@@ -15,7 +15,7 @@ struct VerticalLabeledContentStyle: LabeledContentStyle {
                 .lineLimit(2)
                 .minimumScaleFactor(0.8)
             configuration.content
-                .font(.system(.title, design: .rounded))
+                .font(.system(.title, design: .rounded, weight: .semibold))
                 .foregroundColor(.publicNavy)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
