@@ -56,6 +56,7 @@
 		8C62A8A229D1490B0073A9A0 /* School+SampleJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+SampleJSON.swift"; sourceTree = "<group>"; };
 		8C62A8A429D149710073A9A0 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		8C62A8A629D14C670073A9A0 /* SchoolListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListViewModel.swift; sourceTree = "<group>"; };
+		8CA1CA3B29DDE3F400E03969 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8CD9FF3E29D5F62900A7627F /* NYCSchoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD9FF4029D5F62900A7627F /* NYCSchoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +82,7 @@
 		8C62A87E29D12F7A0073A9A0 = {
 			isa = PBXGroup;
 			children = (
+				8CA1CA3B29DDE3F400E03969 /* README.md */,
 				8C62A88929D12F7A0073A9A0 /* NYCSchoolsChallenge */,
 				8CD9FF3F29D5F62900A7627F /* NYCSchoolsTests */,
 				8C62A88829D12F7A0073A9A0 /* Products */,
