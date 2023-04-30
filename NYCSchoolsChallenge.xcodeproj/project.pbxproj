@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C05869A29FE1B9B00EA94BD /* SchoolsStaticData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C05869929FE1B9B00EA94BD /* SchoolsStaticData.json */; };
+		8C05869C29FE1BA800EA94BD /* ScoresStaticData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C05869B29FE1BA800EA94BD /* ScoresStaticData.json */; };
 		8C4F0B6529D24FE900E30504 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F0B6429D24FE900E30504 /* Extensions.swift */; };
 		8C4F0B6729D285FC00E30504 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F0B6629D285FC00E30504 /* VerticalLabeledContentStyle.swift */; };
 		8C4F0B6929D2864B00E30504 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F0B6829D2864B00E30504 /* Statistic.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C05869929FE1B9B00EA94BD /* SchoolsStaticData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SchoolsStaticData.json; sourceTree = "<group>"; };
+		8C05869B29FE1BA800EA94BD /* ScoresStaticData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ScoresStaticData.json; sourceTree = "<group>"; };
 		8C4F0B6429D24FE900E30504 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8C4F0B6629D285FC00E30504 /* VerticalLabeledContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabeledContentStyle.swift; sourceTree = "<group>"; };
 		8C4F0B6829D2864B00E30504 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C05869829FE1B2800EA94BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C05869929FE1B9B00EA94BD /* SchoolsStaticData.json */,
+				8C05869B29FE1BA800EA94BD /* ScoresStaticData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8C62A87E29D12F7A0073A9A0 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 				8C62A8A129D13EBD0073A9A0 /* Views */,
 				8C62A89C29D13D450073A9A0 /* Model */,
 				8C62A88E29D12F7D0073A9A0 /* Assets.xcassets */,
+				8C05869829FE1B2800EA94BD /* Resources */,
 				8C62A89029D12F7D0073A9A0 /* Preview Content */,
 			);
 			path = NYCSchoolsChallenge;
@@ -239,7 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C05869A29FE1B9B00EA94BD /* SchoolsStaticData.json in Resources */,
 				8C62A89229D12F7D0073A9A0 /* Preview Assets.xcassets in Resources */,
+				8C05869C29FE1BA800EA94BD /* ScoresStaticData.json in Resources */,
 				8C62A88F29D12F7D0073A9A0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
