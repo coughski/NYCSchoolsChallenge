@@ -12,13 +12,13 @@ final class NetworkingManager {
     
     private init() {}
     
-    func request<T: Decodable>(_ absoluteURL: String) async throws -> T {
+    func request<T: Decodable>(session: URLSession = .shared, _ absoluteURL: String) async throws -> T {
         guard let url = URL(string: absoluteURL) else { throw NetworkingError.invalidURL }
         
         let request = URLRequest(url: url)
         let response: (Data, URLResponse)
         do {
-            response = try await URLSession.shared.data(for: request)
+            response = try await session.data(for: request)
         } catch {
             throw NetworkingError.custom(error: error)
         }
