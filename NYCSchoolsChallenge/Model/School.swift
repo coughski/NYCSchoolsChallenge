@@ -59,6 +59,8 @@ extension School: Decodable {
     }
 }
 
+extension School: Equatable {}
+
 extension School {
     static let sampleData = [
         School(dbn: "21K728", name: "Liberation Diploma Plus High School", overview: "", phoneNumber: "", email: "", website: "", totalStudents: 206, graduationRate: nil, attendanceRate: nil, latitude: nil, longitude: nil, borough: "BROOKLYN"),
