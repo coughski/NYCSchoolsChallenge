@@ -48,3 +48,20 @@ extension NetworkingManager {
         case failedToDecode
     }
 }
+
+extension NetworkingManager.NetworkingError: Equatable {
+    static func == (lhs: NetworkingManager.NetworkingError, rhs: NetworkingManager.NetworkingError) -> Bool {
+        switch (lhs, rhs) {
+            case (.invalidURL, .invalidURL):
+                return true
+            case let (.custom(lhsError), .custom(rhsError)):
+                return lhsError.localizedDescription == rhsError.localizedDescription
+            case let (.invalidStatusCode(lhsCode), .invalidStatusCode(rhsCode)):
+                return lhsCode == rhsCode
+            case (.failedToDecode, .failedToDecode):
+                return true
+            default:
+                return false
+        }
+    }
+}
