@@ -24,6 +24,12 @@ final class SchoolListViewModel: ObservableObject {
 //    @Published var suggestedSearchTokens = Borough.allTokens + OtherTokenEnum.allTokens
 //    @Published private(set) var searchResults = [School]()
     
+    private let networkingManager: NetworkingManagerImpl
+    
+    init(networkingManager: NetworkingManagerImpl = NetworkingManager.shared) {
+        self.networkingManager = networkingManager
+    }
+    
     func search() -> [School] {
         if !searchString.isEmpty {
             return schools.filter { $0.name.lowercased().contains(searchString.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) }
@@ -44,7 +50,7 @@ final class SchoolListViewModel: ObservableObject {
     // Given more time, I would display errors to the user in the form of an alert
     private func fetchSchools() async {
         do {
-            schools = try await NetworkingManager.shared.request(Self.schoolDirectoryURL)
+            schools = try await networkingManager.request(session: .shared, Self.schoolDirectoryURL)
             schools.sort(by: sortOrder.predicate)
         } catch {
             dump(error)
@@ -53,7 +59,7 @@ final class SchoolListViewModel: ObservableObject {
     
     private func fetchTestResults() async {
         do {
-            let resultsList: TestResultsResponse = try await NetworkingManager.shared.request(Self.testResultsURL)
+            let resultsList: TestResultsResponse = try await networkingManager.request(session: .shared, Self.testResultsURL)
             for result in resultsList {
                 testResults[result.dbn] = result
             }
