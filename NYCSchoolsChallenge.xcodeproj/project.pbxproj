@@ -28,6 +28,7 @@
 		8CD9FF4929D5F99300A7627F /* TestResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A89A29D138C10073A9A0 /* TestResults.swift */; };
 		8CD9FF4A29D5FB5A00A7627F /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62A8A429D149710073A9A0 /* NetworkingManager.swift */; };
 		8CDF7A5429FE05DB001890FF /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF7A5329FE05DB001890FF /* NetworkingManagerTests.swift */; };
+		8CDF7A5629FE11CE001890FF /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF7A5529FE11CE001890FF /* MockURLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8CD9FF3E29D5F62900A7627F /* NYCSchoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD9FF4029D5F62900A7627F /* NYCSchoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsTests.swift; sourceTree = "<group>"; };
 		8CDF7A5329FE05DB001890FF /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
+		8CDF7A5529FE11CE001890FF /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				8CD9FF4029D5F62900A7627F /* NYCSchoolsTests.swift */,
 				8CDF7A5329FE05DB001890FF /* NetworkingManagerTests.swift */,
+				8CDF7A5529FE11CE001890FF /* MockURLSessionProtocol.swift */,
 			);
 			path = NYCSchoolsTests;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD9FF4129D5F62900A7627F /* NYCSchoolsTests.swift in Sources */,
+				8CDF7A5629FE11CE001890FF /* MockURLSessionProtocol.swift in Sources */,
 				8CD9FF4829D5F75E00A7627F /* School+SampleJSON.swift in Sources */,
 				8CD9FF4929D5F99300A7627F /* TestResults.swift in Sources */,
 				8CD9FF4A29D5FB5A00A7627F /* NetworkingManager.swift in Sources */,
