@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 final class SchoolListViewModel: ObservableObject {
     @Published private(set) var schools = [School]()
     @Published private(set) var testResults = [String: TestResults]()
@@ -24,9 +23,9 @@ final class SchoolListViewModel: ObservableObject {
 //    @Published var suggestedSearchTokens = Borough.allTokens + OtherTokenEnum.allTokens
 //    @Published private(set) var searchResults = [School]()
     
-    private let networkingManager: NetworkingManagerImpl
+    private let networkingManager: any NetworkingManagerImpl
     
-    init(networkingManager: NetworkingManagerImpl = NetworkingManager.shared) {
+    init(networkingManager: any NetworkingManagerImpl = NetworkingManager.shared) {
         self.networkingManager = networkingManager
     }
     
@@ -41,6 +40,7 @@ final class SchoolListViewModel: ObservableObject {
     static let schoolDirectoryURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     static let testResultsURL = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
     
+    @MainActor
     func fetchData() async {
         async let callSchools: Void = fetchSchools()
         async let callResults: Void = fetchTestResults()
@@ -48,7 +48,8 @@ final class SchoolListViewModel: ObservableObject {
     }
     
     // Given more time, I would display errors to the user in the form of an alert
-    private func fetchSchools() async {
+    @MainActor
+    func fetchSchools() async {
         do {
             schools = try await networkingManager.request(session: .shared, Self.schoolDirectoryURL)
             schools.sort(by: sortOrder.predicate)
@@ -57,6 +58,7 @@ final class SchoolListViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     private func fetchTestResults() async {
         do {
             let resultsList: TestResultsResponse = try await networkingManager.request(session: .shared, Self.testResultsURL)

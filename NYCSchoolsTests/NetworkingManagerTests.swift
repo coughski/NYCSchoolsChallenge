@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 @testable import class NYCSchoolsChallenge.NetworkingManager
 
-class NetworkingManagerTests: XCTestCase {
+final class NetworkingManagerTests: XCTestCase {
     func testSuccessfulValidResponse() async throws {
         guard let path = Bundle.main.path(forResource: "SchoolsStaticData", ofType: "json"),
               let data = FileManager.default.contents(atPath: path) else {
